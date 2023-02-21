@@ -45,10 +45,6 @@ public class FileOp {
     }
 
     public static void d(HashSet<File> files){
-        for(File f : files){
-            Files.copy(null, null, null);
-        }
-
     }
 
     //fetch all files that are deleted in the newest version

@@ -1,0 +1,4 @@
+lib
+bin
+bin/App.class
+bin/util/FileOp.class
