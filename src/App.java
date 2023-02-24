@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Date;
 
 public class App {
     //Background side
@@ -29,7 +26,7 @@ public class App {
                 break;
         
             default:
-                exiting("No command called " + args[0]);
+                exiting("There is no command called " + args[0]);
                 break;
         }
     }

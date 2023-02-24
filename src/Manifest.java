@@ -1,7 +1,5 @@
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,6 +62,7 @@ public class Manifest {
 
     }
     
+    //File directly points at the manifest
     public static Manifest getManifest(File mf){
         //load manifest
         return null;

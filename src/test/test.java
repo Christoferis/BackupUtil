@@ -7,6 +7,12 @@ import util.FileOp;
 
 public class test {
     public static void main(String[] args) {
+        // FileOpTest();
+        PathTest();
+    }
+
+    //Test: passed (24.02.23, 23.50)
+    public static void FileOpTest() {
         String path = "D:/Dev/Code/autocomplete/src";
         String path1 = "D:/Dev/Code/RhubarbBarbara";
         String path2 = "D:/Dev/Code/3001_SpaceTragedy";
@@ -26,6 +32,11 @@ public class test {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+    }
+
+    //Do not use after backup has been implemented; Test: passed (24.02.23, 23.50)
+    public static void PathTest() {
+        FileOp.backup(new File("D:/Dev/Code/RhubarbBarbara"), new File("G:/Backups"), null);
+        FileOp.backup(new File("D:/Dev/Code/3001_SpaceTragedy"), new File("G:/Backups"), null);
     }
 }
