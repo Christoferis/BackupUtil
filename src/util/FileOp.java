@@ -63,7 +63,7 @@ public class FileOp {
             String dest = destination.getAbsolutePath() + orig.replaceFirst(Matcher.quoteReplacement(original.getAbsolutePath()), ""); 
         
             // copyOP(null, null);
-            System.out.println(dest);
+            // System.out.println(dest);
         }
     }
 
@@ -71,8 +71,6 @@ public class FileOp {
 
         //check if thing exists, then copy
         // Files.copy(null, null, null)
-
-
 
     }
 
