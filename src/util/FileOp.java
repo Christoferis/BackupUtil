@@ -1,6 +1,5 @@
 package util;
 
-import java.beans.DesignMode;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
@@ -57,21 +56,32 @@ public class FileOp {
             System.exit(0);
         }
 
+        int count = 0;
         for(File f : files){
+            count++;
 
             String orig = f.getAbsolutePath();
             String dest = destination.getAbsolutePath() + orig.replaceFirst(Matcher.quoteReplacement(original.getAbsolutePath()), ""); 
         
-            // copyOP(null, null);
-            // System.out.println(dest);
+            //TODO: CopyOP
+
+            //Loading Screen
+            System.out.println("Backed up " + count / files.size() * 100 + "% (" + count + "/" + files.size() + ")" );
+
         }
     }
 
     public static void copyOP(File file, File destination, String[] args){
+        File dirTest = new File(destination.getParent());
 
-        //check if thing exists, then copy
-        // Files.copy(null, null, null)
+        //may be point of failure -> Don't know the behaviour
+        dirTest.mkdirs();
 
+        try {
+            Files.copy(file.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception e) {
+            System.err.println("Couldn't copy file " + file.getAbsolutePath() + ". Skipping this file...");
+        }
     }
 
     //fetch all files that are deleted in the newest version

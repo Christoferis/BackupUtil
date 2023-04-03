@@ -1,3 +1,4 @@
+import java.util.Stack;
 
 public class App {
     //Background side
@@ -10,19 +11,29 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         
+        //convert thing to Stack
+        Stack<String> argStack = new Stack<>();
+        for (int i = args.length - 1; i >= 0; i--) {
+            argStack.push(args[i]);
+        }
+    
+
         //atleast 3 args
-        switch (args[0].toLowerCase()) {
+        switch (argStack.pop().toLowerCase()) {
             case "help":
                 Commands.help();
                 break;
             
             case "new":
+                Commands.new_vault(argStack.pop(), argStack.pop());
                 break;
 
             case "add":
+                Commands.add(argStack.pop(), argStack.pop());
                 break;
 
             case "backup":
+                Commands.backup(argStack.pop(), argStack);
                 break;
         
             default:

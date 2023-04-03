@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.Stack;
 
 public class Commands {
     
@@ -19,8 +20,8 @@ public class Commands {
     }
 
 
-    public static void new_vault(String[] args){
-        File vault = new File(args[1], args[2]);
+    public static boolean new_vault(String path, String name){
+        File vault = new File(path, name);
         
         if(vault.exists()){App.exiting("Vault / Directory already exists");}
 
@@ -29,10 +30,58 @@ public class Commands {
         } catch (SecurityException e) {
             e.printStackTrace();
             App.exiting("Vault couldn't be created.");
+            return false;
         }
 
+        return true;
+    }
+
+    //vault function
+    public static void add(String path, String vault){
         
+    }
+
+    //vault function
+    public static void remove(String path, String vault){
 
     }
+
+    public static void backup(String vault, Stack<String> args){
+        //get all of the args
+
+        //replace older backups with new backup
+        boolean replace = false;
+        //backup only the files that were modified recently
+        boolean onlyNew = false;
+        //retroactively delete files that now don't exist anymore
+        boolean retro = false;
+
+        if (args.size() > 3){
+            App.exiting("To many arguments");
+        }
+
+        while (!args.isEmpty()) {
+            switch (args.pop()) {
+                case "replace":
+                    replace = true;
+                    break;
+
+                case "onlyNew":
+                    onlyNew = true;
+                    break;
+
+                case "retroactive":
+                    retro = true;
+                    break;
+            
+                default:
+                    continue;
+            }
+
+
+        }
+
+    }
+
 
 }
